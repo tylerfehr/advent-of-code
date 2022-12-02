@@ -7,7 +7,6 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "permissions": "chmod u+r+x ./src/run-all-solutions.sh",
     "solve": "./src/run-all-solutions.sh"
   },
   "devDependencies": {
