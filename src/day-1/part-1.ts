@@ -1,3 +1,3 @@
 import { sums } from './common';
 
-console.log(Math.max(...sums));
+console.log(`Elf carrying the most calories has: ${Math.max(...sums)}`);
