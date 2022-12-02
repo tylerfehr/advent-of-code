@@ -55,7 +55,7 @@ export const SAME_CHOICE_LOOKUP = <const> {
 /**
  * Maps my choices to the value they win over
  */
-export const WINNING_MATCHUPS: Record<MyResponse, OpponentResponse> = <const> {
+export const WINNING_MATCHUPS = <const> {
   [MyResponse.Rock]: OpponentResponse.Scissors,
   [MyResponse.Paper]: OpponentResponse.Rock,
   [MyResponse.Scissors]: OpponentResponse.Paper,
