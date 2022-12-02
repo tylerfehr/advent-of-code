@@ -23,4 +23,4 @@ const finalScore = tournamentRounds.reduce<number>(
   0,
 );
 
-console.log(`The final score following the strategy guide is ${finalScore}`);
+console.log(`Day 2 Part 1: The final score following the strategy guide is ${finalScore}`);

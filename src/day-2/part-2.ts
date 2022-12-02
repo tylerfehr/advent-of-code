@@ -6,12 +6,18 @@ import {
   SCORE_LOOKUP,
 } from './common';
 
+/**
+ * My response encoded to the secret desired outcome
+ */
 const ENCODED_OUTCOME_TO_MY_GUESS = <const> {
   [MyResponse.Rock]: Outcome.Loss,
   [MyResponse.Paper]: Outcome.Draw,
   [MyResponse.Scissors]: Outcome.Win,
 }
 
+/**
+ * Lookup mapping opponent response to the response I would give for each outcome
+ */
 const ENCODED_OUTCOMES = <const> {
   [OpponentResponse.Rock]: {
     [Outcome.Win]: MyResponse.Paper,
@@ -40,4 +46,4 @@ const finalScore = tournamentRounds.reduce<number>(
   0,
 );
 
-console.log(`The final score following the adjusted strategy guide is ${finalScore}`);
+console.log(`Day 2 Part 2: The final score following the adjusted strategy guide is ${finalScore}`);

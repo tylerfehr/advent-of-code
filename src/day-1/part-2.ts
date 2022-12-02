@@ -8,4 +8,4 @@ const topThreeSum = sums
   .slice(0, TOP_RANGE)
   .reduce<number>((acc, curr) => acc + curr, 0);
 
-console.log(`Sum of the top three elves with the most calories: ${topThreeSum}`);
+console.log(`Day 1 Part 2: Sum of the top three elves with the most calories: ${topThreeSum}`);
