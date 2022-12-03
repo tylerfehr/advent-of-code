@@ -22,9 +22,7 @@ const summedPriorities = rucksacks.reduce<number>(
     );
 
     // traditional for loop to exit early from outer reduce
-    for (let i = 0; i < secondHalf.length; i += 1) {
-      const item = secondHalf[i];
-
+    for (const item of secondHalf) {
       if (duplicateLookup[item]) {
         if (item === item.toLowerCase()) {
           return acc + LOWER_PRIORITIES[item];
