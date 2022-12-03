@@ -5,7 +5,7 @@ export const DAY_THREE_INPUT_FILE_PATH = <const> './inputs/day-3/part-1.txt';
 /**
  * Array of rucksack strings
  */
-export const rucksacks = readTextFile(DAY_THREE_INPUT_FILE_PATH)
+export const rucksacks: string[][] = readTextFile(DAY_THREE_INPUT_FILE_PATH)
   .split('\n')
   .map((r) => r.split(''));
 
