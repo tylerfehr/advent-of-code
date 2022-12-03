@@ -3,19 +3,18 @@ import { readTextFile } from '../readfile';
 export const DAY_THREE_INPUT_FILE_PATH = <const> './inputs/day-3/part-1.txt';
 
 /**
- * Rucksacks, each split into the two compartments by a tuple
+ * Array of rucksack strings
  */
-export const splitRucksacks = readTextFile(DAY_THREE_INPUT_FILE_PATH).split('\n').reduce<RucksackCompartments[]>(
-  (acc, curr) => {
-    const half = Math.floor(curr.length / 2);
+export const rucksacks = readTextFile(DAY_THREE_INPUT_FILE_PATH).split('\n');
 
-    const firstHalf = curr.slice(0, half);
-    const secondHalf = curr.slice(half, curr.length);
+export const splitRucksackInTwo = (rucksack: string): RucksackCompartments => {
+  const half = Math.floor(rucksack.length / 2);
 
-    return [...acc, [firstHalf, secondHalf]];
-  },
-  [],
-);
+  const firstHalf = rucksack.slice(0, half);
+  const secondHalf = rucksack.slice(half, rucksack.length);
+
+  return [firstHalf, secondHalf];
+}
 
 /**
  * Alpha priority value lookup

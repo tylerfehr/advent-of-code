@@ -1,11 +1,14 @@
 import {
-  splitRucksacks,
+  rucksacks,
   LOWER_PRIORITIES,
   UPPER_PRIORITIES,
+  splitRucksackInTwo,
 } from "./common";
 
-const summedPriorities = splitRucksacks.reduce<number>(
-  (acc, [firstHalf, secondHalf]) => {
+const summedPriorities = rucksacks.reduce<number>(
+  (acc, curr) => {
+    const [firstHalf, secondHalf] = splitRucksackInTwo(curr);
+
     // create a hash map in linear time to test for duplicates
     const duplicateLookup = firstHalf.split('').reduce<Record<string, true>>(
       (duplicateAcc, curr: string) => {
