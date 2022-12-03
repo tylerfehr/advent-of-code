@@ -39,14 +39,14 @@ const generatePriorityLookup = (alphabet: string, offset = 0): PriorityLookup =>
   );
 }
 
-const CAPITAL_PRIORITY_OFFSET = <const> 26;
+const ALPHABET = <const> 'abcdefghijklmnopqrstuvwxyz';
 
 /**
  * Map lowercase alphabet to its priority of 1-6
  */
-export const LOWER_PRIORITIES = generatePriorityLookup('abcdefghijklmnopqrstuvwxyz');
+export const LOWER_PRIORITIES = generatePriorityLookup(ALPHABET);
 
 /**
  * Map uppercase alphabet to its priorities of 27-52
  */
-export const UPPER_PRIORITIES = generatePriorityLookup('ABCDEFGHIJKLMNOPQRSTUVWXYZ', CAPITAL_PRIORITY_OFFSET);
+export const UPPER_PRIORITIES = generatePriorityLookup(ALPHABET.toUpperCase(), ALPHABET.length);

@@ -16,13 +16,13 @@ const groupsOfThree = rucksacks.reduce<[r1: string[], r2: string[], r3: string[]
         Array.from(new Set(rucksackArr[i])),
         Array.from(new Set(rucksackArr[i + 1])),
         Array.from(new Set(rucksackArr[i + 2])),
-      ]
+      ],
     ]
     : acc,
   [],
 );
 
-const summedPriorities = groupsOfThree.reduce(
+const summedPriorities = groupsOfThree.reduce<number>(
   (acc, [r1, r2, r3]) => {
     const duplicateLookup = r1.reduce<Record<string, number>>(
       (duplicateAcc, curr) => {
