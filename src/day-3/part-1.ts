@@ -39,4 +39,4 @@ const summedPriorities = rucksacks.reduce<number>(
   0,
 );
 
-console.log(`The sum of the priorities of the duplicate item types is ${summedPriorities}`);
+console.log(`Day 3 Part 1: The sum of the priorities of the duplicate item types is ${summedPriorities}`);

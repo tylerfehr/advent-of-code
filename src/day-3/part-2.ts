@@ -58,4 +58,4 @@ const summedPriorities = groupsOfThree.reduce(
   0,
 );
 
-console.log(`The sum of priorities for the duplicate items in each three-elf group is ${summedPriorities}`);
+console.log(`Day 3 Part 2: The sum of priorities for the duplicate items in each three-elf group is ${summedPriorities}`);
