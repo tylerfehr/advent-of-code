@@ -7,6 +7,9 @@ export const DAY_THREE_INPUT_FILE_PATH = <const> './inputs/day-3/part-1.txt';
  */
 export const rucksacks = readTextFile(DAY_THREE_INPUT_FILE_PATH).split('\n');
 
+/**
+ * Split rucksack into two equal halves
+ */
 export const splitRucksackInTwo = (rucksack: string): RucksackCompartments => {
   const half = Math.floor(rucksack.length / 2);
 
