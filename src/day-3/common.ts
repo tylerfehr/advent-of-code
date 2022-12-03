@@ -16,7 +16,7 @@ export const splitRucksackInTwo = (rucksack: string): RucksackCompartments => {
   const firstHalf = rucksack.slice(0, half);
   const secondHalf = rucksack.slice(half, rucksack.length);
 
-  return [firstHalf, secondHalf];
+  return [[...firstHalf], [...secondHalf]];
 }
 
 /**
@@ -27,7 +27,7 @@ export type PriorityLookup = Record<string, number>;
 /**
  * Tuple containing the first and second rucksack compartments
  */
-export type RucksackCompartments = [firstHalf: string, secondHalf: string];
+export type RucksackCompartments = [firstHalf: string[], secondHalf: string[]];
 
 const generatePriorityLookup = (alphabet: string, offset = 0): PriorityLookup => {
   return alphabet.split('').reduce<PriorityLookup>(

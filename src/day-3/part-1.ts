@@ -10,7 +10,7 @@ const summedPriorities = rucksacks.reduce<number>(
     const [firstHalf, secondHalf] = splitRucksackInTwo(curr);
 
     // create a hash map in linear time to test for duplicates
-    const duplicateLookup = firstHalf.split('').reduce<Record<string, true>>(
+    const duplicateLookup = firstHalf.reduce<Record<string, true>>(
       (duplicateAcc, curr: string) => {
         if (!duplicateAcc[curr]) {
           duplicateAcc[curr] = true;

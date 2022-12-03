@@ -33,13 +33,13 @@ const summedPriorities = groupsOfThree.reduce(
       {},
     );
 
-    for (const item of r2.values()) {
+    for (const item of r2) {
       if (duplicateLookup[item]) {
         duplicateLookup[item] += 1;
       }
     }
 
-    for (const item of r3.values()) {
+    for (const item of r3) {
       // if its a duplicate and its the same as the one we've seen twice before, it's the elf's badge
       if (duplicateLookup[item] && duplicateLookup[item] === 2) {
 
