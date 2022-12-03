@@ -5,18 +5,17 @@ export const DAY_THREE_INPUT_FILE_PATH = <const> './inputs/day-3/part-1.txt';
 /**
  * Array of rucksack strings
  */
-export const rucksacks = readTextFile(DAY_THREE_INPUT_FILE_PATH).split('\n');
+export const rucksacks = readTextFile(DAY_THREE_INPUT_FILE_PATH)
+  .split('\n')
+  .map((r) => r.split(''));
 
 /**
  * Split rucksack into two equal halves
  */
-export const splitRucksackInTwo = (rucksack: string): RucksackCompartments => {
+export const splitRucksackInTwo = (rucksack: string[]): RucksackCompartments => {
   const half = Math.floor(rucksack.length / 2);
 
-  const firstHalf = rucksack.slice(0, half);
-  const secondHalf = rucksack.slice(half, rucksack.length);
-
-  return [[...firstHalf], [...secondHalf]];
+  return [rucksack.slice(0, half), rucksack.slice(half, rucksack.length)];
 }
 
 /**

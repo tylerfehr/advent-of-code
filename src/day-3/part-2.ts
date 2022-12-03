@@ -8,14 +8,14 @@ import {
  * Split rucksack into groups of three with local duplicates removed via a set
  */
 const groupsOfThree = rucksacks.reduce<[r1: string[], r2: string[], r3: string[]][]>(
-  (acc, curr: string, i, rucksackArr) => (i % 3 === 0)
+  (acc, _, i, rucksackArr) => (i % 3 === 0)
     ?
     [
       ...acc,
       [
-        Array.from(new Set(curr.split(''))),
-        Array.from(new Set(rucksackArr[i + 1].split(''))),
-        Array.from(new Set(rucksackArr[i + 2].split(''))),
+        Array.from(new Set(rucksackArr[i])),
+        Array.from(new Set(rucksackArr[i + 1])),
+        Array.from(new Set(rucksackArr[i + 2])),
       ]
     ]
     : acc,
@@ -41,7 +41,7 @@ const summedPriorities = groupsOfThree.reduce(
 
     for (const item of r3) {
       // if its a duplicate and its the same as the one we've seen twice before, it's the elf's badge
-      if (duplicateLookup[item] && duplicateLookup[item] === 2) {
+      if (duplicateLookup[item] === 2) {
 
         if (item === item.toLowerCase()) {
           return acc + LOWER_PRIORITIES[item];
