@@ -7,10 +7,10 @@ export const DAY_THREE_INPUT_FILE_PATH = <const> './inputs/day-3/part-1.txt';
  */
 export const splitRucksacks = readTextFile(DAY_THREE_INPUT_FILE_PATH).split('\n').reduce<RucksackCompartments[]>(
   (acc, curr) => {
-    const compartmentSplit = Math.floor(curr.length / 2);
+    const half = Math.floor(curr.length / 2);
 
-    const firstHalf = curr.slice(0, compartmentSplit);
-    const secondHalf = curr.slice(compartmentSplit + 1, curr.length);
+    const firstHalf = curr.slice(0, half);
+    const secondHalf = curr.slice(half, curr.length);
 
     return [...acc, [firstHalf, secondHalf]];
   },
