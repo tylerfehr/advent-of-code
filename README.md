@@ -1,7 +1,10 @@
-# Advent of Code 2022 ![image](https://user-images.githubusercontent.com/56086429/205501929-b3f46967-d03f-485e-aae0-944eb2cb20ef.png)
+# Advent of Code 2022
 
 
 My solutions for advent of code 2022
+
+![image](https://user-images.githubusercontent.com/56086429/205502127-9ac42dff-01ab-418c-bb18-e1cc5bb6c463.png)
+
 
 ## Run a Single Day's Solution
 
