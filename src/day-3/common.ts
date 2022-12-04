@@ -1,6 +1,6 @@
 import { readTextFile } from '../readfile';
 
-export const DAY_THREE_INPUT_FILE_PATH = <const> './inputs/day-3/part-1.txt';
+export const DAY_THREE_INPUT_FILE_PATH = <const> './inputs/day-3.txt';
 
 /**
  * Array of rucksack strings

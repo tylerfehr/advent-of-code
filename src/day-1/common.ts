@@ -1,6 +1,6 @@
 import { readTextFile } from '../readfile';
 
-export const DAY_ONE_INPUT_FILE_PATH = <const> './inputs/day-1/part-1.txt';
+export const DAY_ONE_INPUT_FILE_PATH = <const> './inputs/day-1.txt';
 
 /**
  * Each group summed (DRY)
