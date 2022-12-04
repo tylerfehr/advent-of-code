@@ -46,7 +46,7 @@ export enum Outcome {
 /**
  * Maps my choices to the same value for the opponent's choices
  */
-export const SAME_CHOICE_LOOKUP = <const> {
+export const DRAWING_MATCHUPS = <const> {
   [MyResponse.Rock]: OpponentResponse.Rock,
   [MyResponse.Paper]: OpponentResponse.Paper,
   [MyResponse.Scissors]: OpponentResponse.Scissors,

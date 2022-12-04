@@ -28,8 +28,8 @@ export type PriorityLookup = Record<string, number>;
  */
 export type RucksackCompartments = [firstHalf: string[], secondHalf: string[]];
 
-const generatePriorityLookup = (alphabet: string, offset = 0): PriorityLookup => {
-  return alphabet.split('').reduce<PriorityLookup>(
+const generatePriorityLookup = (alphabet: string, offset = 0): PriorityLookup => alphabet.split('')
+  .reduce<PriorityLookup>(
     (acc, curr, i) => {
       acc[curr] = (i + 1) + offset;
 
@@ -37,7 +37,6 @@ const generatePriorityLookup = (alphabet: string, offset = 0): PriorityLookup =>
     },
     {},
   );
-}
 
 const ALPHABET = <const> 'abcdefghijklmnopqrstuvwxyz';
 

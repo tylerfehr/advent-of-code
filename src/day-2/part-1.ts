@@ -2,7 +2,7 @@ import {
   tournamentRounds,
   Outcome,
   SCORE_LOOKUP,
-  SAME_CHOICE_LOOKUP,
+  DRAWING_MATCHUPS,
   WINNING_MATCHUPS,
 } from './common';
 
@@ -14,7 +14,7 @@ const finalScore = tournamentRounds.reduce<number>(
       return acc + scoreForChoice + Outcome.Win;
     }
 
-    if (SAME_CHOICE_LOOKUP[myChoice] === opponentChoice) {
+    if (DRAWING_MATCHUPS[myChoice] === opponentChoice) {
       return acc + scoreForChoice + Outcome.Draw;
     }
 
