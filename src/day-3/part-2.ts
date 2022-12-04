@@ -9,15 +9,7 @@ import {
  */
 const groupsOfThree = rucksacks.reduce<[r1: string[], r2: string[], r3: string[]][]>(
   (acc, _, i, rucksackArr) => (i % 3 === 0)
-    ?
-    [
-      ...acc,
-      [
-        Array.from(new Set(rucksackArr[i])),
-        Array.from(new Set(rucksackArr[i + 1])),
-        Array.from(new Set(rucksackArr[i + 2])),
-      ],
-    ]
+    ? [...acc, [rucksackArr[i], rucksackArr[i + 1], rucksackArr[i + 2]]]
     : acc,
   [],
 );
@@ -35,7 +27,7 @@ const summedPriorities = groupsOfThree.reduce<number>(
 
     for (const item of r2) {
       if (duplicateLookup[item]) {
-        duplicateLookup[item] += 1;
+        duplicateLookup[item] = 2;
       }
     }
 
