@@ -3,7 +3,7 @@
 
 My solutions for advent of code 2022
 
-![image](https://user-images.githubusercontent.com/56086429/205502127-9ac42dff-01ab-418c-bb18-e1cc5bb6c463.png)
+![image](https://user-images.githubusercontent.com/56086429/205502163-744b9504-4a19-4de2-8fc2-e8d6d23cdac9.png)
 
 
 ## Run a Single Day's Solution
