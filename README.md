@@ -1,9 +1,9 @@
-# Advent of Code 2022
+# Advent of Code
 
 
-My solutions for advent of code 2022
+My solutions for advent of code
 
-![image](https://user-images.githubusercontent.com/56086429/205502163-744b9504-4a19-4de2-8fc2-e8d6d23cdac9.png)
+2022: ![image](https://user-images.githubusercontent.com/56086429/205502163-744b9504-4a19-4de2-8fc2-e8d6d23cdac9.png)
 
 
 ## Run a Single Day's Solution
