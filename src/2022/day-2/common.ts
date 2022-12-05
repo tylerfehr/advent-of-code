@@ -32,7 +32,7 @@ export const SCORE_LOOKUP = <const> {
   [MyResponse.Rock]: 1,
   [MyResponse.Paper]: 2,
   [MyResponse.Scissors]: 3,
-}
+};
 
 /**
  * Outcome for a round of RPS
@@ -50,7 +50,7 @@ export const DRAWING_MATCHUPS = <const> {
   [MyResponse.Rock]: OpponentResponse.Rock,
   [MyResponse.Paper]: OpponentResponse.Paper,
   [MyResponse.Scissors]: OpponentResponse.Scissors,
-}
+};
 
 /**
  * Maps my choices to the value they win over
@@ -59,4 +59,4 @@ export const WINNING_MATCHUPS = <const> {
   [MyResponse.Rock]: OpponentResponse.Scissors,
   [MyResponse.Paper]: OpponentResponse.Rock,
   [MyResponse.Scissors]: OpponentResponse.Paper,
-}
+};

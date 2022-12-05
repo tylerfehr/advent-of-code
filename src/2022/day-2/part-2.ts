@@ -13,7 +13,7 @@ const ENCODED_OUTCOME_TO_MY_GUESS = <const> {
   [MyResponse.Rock]: Outcome.Loss,
   [MyResponse.Paper]: Outcome.Draw,
   [MyResponse.Scissors]: Outcome.Win,
-}
+};
 
 /**
  * Lookup mapping opponent response to the response I would give for each outcome
