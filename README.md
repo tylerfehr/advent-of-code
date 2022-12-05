@@ -32,4 +32,4 @@ If you get a `permission denied` error after running the `solve` command, run:
 chmod u+r+x ./src/run-all-solutions.sh
 ```
 
-to grant read and execute permissions to the script
+to grant read and execute permissions to the script.
