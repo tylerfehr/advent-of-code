@@ -4,10 +4,6 @@ const DAY_FIVE_INPUT_FILE_PATH = <const> './2022/inputs/day-5.txt';
 
 const [rawStack, rawMoveInstructions] = readTextFile(DAY_FIVE_INPUT_FILE_PATH).split('\n\n');
 
-const QTY_INDEX = <const> 5;
-const SRC_INDEX = <const> 12;
-const DEST_INDEX = <const> 17;
-
 type MoveInstruction = [qty: number, src: number, dest: number];
 
 /**
@@ -18,11 +14,9 @@ export const moveInstructions: MoveInstruction[] = rawMoveInstructions
   .trim()
   .split('\n')
   .map<MoveInstruction>((m) => {
-    const qty = +m[QTY_INDEX];
-    const src = +m[SRC_INDEX];
-    const dest = +m[DEST_INDEX]
+    const [_move, qty, _from, src, _to, dest] = m.split(' ');
 
-    return [qty, src, dest];
+    return [+qty, +src, +dest];
   });
 
 /**
