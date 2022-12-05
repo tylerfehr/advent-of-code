@@ -9,13 +9,13 @@ My solutions for advent of code
 ## Run a Single Day's Solution
 
 ```bash
-npx ts-node ./src/day-{day number}/part-{part number}
+npx ts-node ./src/{year}/day-{day number}/part-{part number}
 ```
 
 e.g.
 
 ```bash
-npx ts-node ./src/day-1/part-1.ts
+npx ts-node ./src/2022/day-1/part-1.ts
 ```
 
 ## Run All Solutions

@@ -1,6 +1,6 @@
-import { readTextFile } from '../readfile';
+import { readTextFile } from '../../readfile';
 
-export const DAY_TWO_INPUT_FILE_PATH = <const> './inputs/day-2.txt';
+export const DAY_TWO_INPUT_FILE_PATH = <const> './2022/inputs/day-2.txt';
 
 export const tournamentRounds = <[OpponentResponse, MyResponse][]> readTextFile(DAY_TWO_INPUT_FILE_PATH)
   .trim()

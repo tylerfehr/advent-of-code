@@ -1,6 +1,6 @@
-import { readTextFile } from "../readfile";
+import { readTextFile } from "../../readfile";
 
-export const DAY_FOUR_INPUT_FILE_PATH = <const> './inputs/day-4.txt';
+export const DAY_FOUR_INPUT_FILE_PATH = <const> './2022/inputs/day-4.txt';
 
 /**
  * Section assignments parsed into number tuples
