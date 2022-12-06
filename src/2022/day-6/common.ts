@@ -15,13 +15,13 @@ export const transmission = <string> readTextFile(DAY_SIX_INPUT_FILE_PATH);
  * but I prefer keeping the code style consistent across these challenges
  */
 export const getStartOfDistinctWindow = (str: string, windowSize: number): number => str.split('').reduce<number>(
-  (acc, _, i, arr) => {
-    const window = arr.slice(i, i + windowSize);
-
+  (acc, _, i, arr) => {    
     // if we've already found the start of message, just return
     if (acc !== 0) {
       return acc;
     }
+
+    const window = arr.slice(i, i + windowSize);
 
     if (new Set(window).size === windowSize) {
       return i + windowSize;
