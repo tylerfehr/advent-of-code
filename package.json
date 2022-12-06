@@ -1,8 +1,8 @@
 {
-  "name": "advent-of-code-2022",
+  "name": "advent-of-code",
   "version": "0.0.1",
   "main": "index.ts",
-  "repository": "https://github.com/tylerfehr/advent-of-code-2022",
+  "repository": "https://github.com/tylerfehr/advent-of-code",
   "author": "Tyler Fehr",
   "license": "MIT",
   "private": false,
