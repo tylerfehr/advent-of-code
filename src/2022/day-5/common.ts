@@ -22,41 +22,53 @@ export const moveInstructions: MoveInstruction[] = rawMoveInstructions
 /**
   * Generate N stacks, for our accumulator's initial value
   */
-const initializeNStacks = (n: number): Record<number, string[]> => {
-  const initializedStacks = {};
-
-  for (let i = 0; i < n; i += 1) {
-    initializedStacks[n + 1] = [];
-  }
-
-  return initializedStacks;
-};
+const initializeNStacks = (n: number): Record<number, string[]> => Object.fromEntries(
+  Array(n).fill([]).map((_, i) => [i + 1, []]),
+);
 
 /**
  * The parsed stack
  */
-export const stacks = rawStack
-  .split('\n')
-
+export const stacks = rawStack.split('\n')
   // reverse so that we can push onto the stack directly in the correct order
   .reverse()
   .reduce<Record<number, string[]>>(
     (acc, curr, i) => {
+      const line: string[] = curr.split(' ');
+
       // after reversing, the first element is the labeled stacks, 1-N
       if (i === 0) {
-        const firstLine = curr.trim();
+        const firstLine = line.reduce<string>(
+          (flAcc, flCurr) => (flCurr && flCurr !== ' ') ? `${flAcc}${flCurr}` : flAcc,
+          '',
+        );
 
-        // the number of total stacks we'll need is the last number on the first line
-        const numStacks = +firstLine[firstLine.length - 1];
-
-        return initializeNStacks(numStacks);
+        return initializeNStacks(firstLine.length);
       }
 
+      // line parsed without bracket characters and extra empty characters removed
+      const { line: parsedLine } = line.reduce<{ line: string[]; emptyIdx: number }>(
+        (pAcc, pCurr) => {
+          if (pCurr.startsWith('[')) {
+            return { line: [...pAcc.line, pCurr[1]], emptyIdx: 0 };
+          }
 
-      // TODO: parse each item, null items are blank ' '
+          if (pCurr === '' && (pAcc.emptyIdx + 1) % 4 === 0) {
+            return { line: [...pAcc.line, ''], emptyIdx: 0 };
+          }
+          
+          return { ...pAcc, emptyIdx: pAcc.emptyIdx + 1 }
+        },
+        { line: [], emptyIdx: 0 },
+      );
+
+      
+      // push each item onto its own stack, then return the accumulator
+      parsedLine.forEach((l, i) => !!l ? acc[i + 1].push(l) : undefined);
+      
+      console.log(JSON.stringify(acc, undefined, 2));
+
       return acc;
     },
     {}
   );
-
-console.log(stacks);
