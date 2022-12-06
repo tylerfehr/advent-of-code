@@ -3,7 +3,7 @@
 
 My solutions for advent of code
 
-2022: ![image](https://user-images.githubusercontent.com/56086429/205783904-ae4f421e-73ae-411a-acb0-48305b6b86f9.png)
+2022: ![image](https://user-images.githubusercontent.com/56086429/205920825-490c1aa3-55f3-43e9-a298-a0915bf033d4.png)
 
 
 ## Run a Single Part's Solution
