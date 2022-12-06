@@ -54,7 +54,9 @@ export const stacks = rawStack.split('\n')
         (pAcc, pCurr) => {
           // if it starts with an opening bracket, its an item to push onto the stack
           if (pCurr.startsWith('[')) {
-            return { line: [...pAcc.line, pCurr[1]], emptyIdx: 0 };
+            const [_openBracket, item, _closeBracket] = pCurr.split('');
+
+            return { line: [...pAcc.line, item], emptyIdx: 0 };
           }
 
           // every four empty strings is converted into a single empty string for the purposes of the stack
