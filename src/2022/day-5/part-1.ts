@@ -21,9 +21,6 @@ const moveItem = (
 
     stacks[dest].push(popped);
   }
-
-  // mutate (blah) and return the stacks
-  return stacks;
 };
 
 // execute each move instruction
