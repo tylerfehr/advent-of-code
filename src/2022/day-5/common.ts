@@ -4,7 +4,10 @@ const DAY_FIVE_INPUT_FILE_PATH = <const> './2022/inputs/day-5.txt';
 
 const [rawStack, rawMoveInstructions] = readTextFile(DAY_FIVE_INPUT_FILE_PATH).split('\n\n');
 
-type MoveInstruction = [qty: number, src: number, dest: number];
+/**
+ * Tuple of stack move instructions
+ */
+export type MoveInstruction = [qty: number, src: number, dest: number];
 
 /**
  * Stack move instructions are in the form:
@@ -46,13 +49,15 @@ export const stacks = rawStack.split('\n')
         return initializeNStacks(firstLine.length);
       }
 
-      // line parsed without bracket characters and extra empty characters removed
+      // line parsed with bracket characters and extra empty characters removed
       const { line: parsedLine } = line.reduce<{ line: string[]; emptyIdx: number }>(
         (pAcc, pCurr) => {
+          // if it starts with an opening bracket, its an item to push onto the stack
           if (pCurr.startsWith('[')) {
             return { line: [...pAcc.line, pCurr[1]], emptyIdx: 0 };
           }
 
+          // every four empty strings is converted into a single empty string for the purposes of the stack
           if (pCurr === '' && (pAcc.emptyIdx + 1) % 4 === 0) {
             return { line: [...pAcc.line, ''], emptyIdx: 0 };
           }
@@ -63,11 +68,9 @@ export const stacks = rawStack.split('\n')
       );
 
       
-      // push each item onto its own stack, then return the accumulator
+      // push each item onto its own stack in the correct order, ignoring empty strings
       parsedLine.forEach((l, i) => !!l ? acc[i + 1].push(l) : undefined);
       
-      console.log(JSON.stringify(acc, undefined, 2));
-
       return acc;
     },
     {}
