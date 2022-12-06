@@ -32,4 +32,4 @@ moveInstructions.forEach((m) => moveItem(stacks, m));
 // get the character on each stack top
 const topItemForEachStack = Object.values(stacks).reduce((acc, curr) => `${acc}${curr.pop()}`, '');
 
-console.log(`The top item on each stack after every move instruction is executed is ${topItemForEachStack}`)
+console.log(`Day 5 Part 1: The top item on each stack after every move instruction is executed is ${topItemForEachStack}`)

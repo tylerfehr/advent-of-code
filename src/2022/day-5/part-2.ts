@@ -19,4 +19,4 @@ moveInstructions.forEach((m) => moveItem(stacks, m));
 // get the character on each stack top
 const topItemForEachStack = Object.values(stacks).reduce((acc, curr) => `${acc}${curr.pop()}`, '');
 
-console.log(`After the new arrangement procedure, the top crate on each stack is ${topItemForEachStack}`);
+console.log(`Day 5 Part 2: After the new arrangement procedure, the top crate on each stack is ${topItemForEachStack}`);
