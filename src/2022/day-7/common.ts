@@ -27,6 +27,11 @@ type TreeNode = { files: [number, string][]; directories: string[] };
 export type FileTree = Record<string, TreeNode>;
 
 /**
+ * Root path
+ */
+export const ROOT = '/';
+
+/**
  * Get the parent of the current path
  * 
  * /first/second => /first
@@ -56,7 +61,7 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
 
         return {
           ...acc,
-          currPath: acc.currPath === '/' ? `${acc.currPath}${arg}` : `${acc.currPath}/${arg}`,
+          currPath: acc.currPath === ROOT ? `${acc.currPath}${arg}` : `${acc.currPath}/${arg}`,
         };
       }
     }
@@ -87,5 +92,5 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
       },
     };
   },
-  { fileTree: {}, currPath: '/' },
+  { fileTree: {}, currPath: ROOT },
 );
