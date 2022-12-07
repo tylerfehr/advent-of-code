@@ -1,5 +1,7 @@
 # Advent of Code
 
+__Note: Solutions will be posted mainly in the evening (US EST time), Especially as the problem difficulty increases. I still gotta work__ :smile:
+
 
 My solutions for advent of code
 
