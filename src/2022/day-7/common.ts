@@ -7,9 +7,11 @@ const DAY_SEVEN_INPUT_FILE_PATH = './2022/inputs/day-7.txt';
  */
 export const terminalOutput = readTextFile(DAY_SEVEN_INPUT_FILE_PATH)
   .trim()
+  .split('\n')
   // skip over initial `cd /`; we'll assume it's there
-  .slice(1)
-  .split('\n');
+  .slice(1);
+
+console.log(terminalOutput);
 
 /**
  * User commands
@@ -54,7 +56,10 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
           return { ...acc, currPath: getParentOfPath(acc.currPath) };
         }
 
-        return { ...acc, currPath: `${acc.currPath}/${arg}` };
+        return {
+          ...acc,
+          currPath: acc.currPath === '/' ? `${acc.currPath}${arg}` : `${acc.currPath}/${arg}`,
+        };
       }
     }
 
@@ -84,7 +89,7 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
       },
     };
   },
-  { fileTree: {}, currPath: '' },
+  { fileTree: {}, currPath: '/' },
 );
 
 console.log(JSON.stringify(fileTree, undefined, 2));
