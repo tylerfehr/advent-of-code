@@ -11,8 +11,6 @@ export const terminalOutput = readTextFile(DAY_SEVEN_INPUT_FILE_PATH)
   // skip over initial `cd /`; we'll assume it's there
   .slice(1);
 
-console.log(terminalOutput);
-
 /**
  * User commands
  */
@@ -91,5 +89,3 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
   },
   { fileTree: {}, currPath: '/' },
 );
-
-console.log(JSON.stringify(fileTree, undefined, 2));
