@@ -1,6 +1,6 @@
 import { readTextFile } from '../../readfile';
 
-const DAY_SEVEN_INPUT_FILE_PATH = './2022/inputs/day-7.txt';
+const DAY_SEVEN_INPUT_FILE_PATH = './2022/inputs/day-7-test.txt';
 
 /**
  * Raw terminal output from running commands
@@ -36,7 +36,7 @@ export const ROOT = '/';
  * 
  * /first/second => /first
  */
-const getParentOfPath = (path: string): string => {
+export const getParentOfPath = (path: string): string => {
   const pathArr = path.split('/');
 
   return pathArr.slice(0, pathArr.length - 1).join('/');

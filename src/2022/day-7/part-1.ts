@@ -1,14 +1,23 @@
-import { fileTree } from './common';
+import { fileTree, getParentOfPath } from './common';
 
 const MAX_DIRECTORY_SIZE = <const> 100_000;
 
+// TODO: wip
+const getFileSums = (path: string, files: [number, string][], directories: string[]): number => {
+  const fileSum = (files ?? []).reduce((acc, [size, _]) => acc + size, 0);
+
+  const children = directories.map((d) => fileTree[`${path}${d}`]);
+
+  return children.map((c) => getFileSums())
+}
+
 const sum = Object.entries(fileTree).reduce<number>(
   (acc, curr) => {
-    const [_path, { files }] = curr;
+    const [path, { files, directories }] = curr;
 
-    const fileSum = (files ?? []).reduce((acc, [size, _name]) => acc + size, 0);
 
-    if (!fileSum || fileSum >= MAX_DIRECTORY_SIZE) {
+
+    if (!fileSum || fileSum > MAX_DIRECTORY_SIZE) {
       return acc;
     }
 
@@ -17,5 +26,4 @@ const sum = Object.entries(fileTree).reduce<number>(
   0,
 );
 
-// TODO: website is currently down so I can't verify or get the second part
 console.log(`The sum of the total sizes of directories under the size limit is ${sum}`);
