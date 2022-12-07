@@ -7,6 +7,8 @@ const DAY_SEVEN_INPUT_FILE_PATH = './2022/inputs/day-7.txt';
  */
 export const terminalOutput = readTextFile(DAY_SEVEN_INPUT_FILE_PATH)
   .trim()
+  // skip over initial `cd /`; we'll assume it's there
+  .slice(1)
   .split('\n');
 
 /**
@@ -36,7 +38,7 @@ const getParentOfPath = (path: string): string => {
 }
 
 /**
- * The accumulator is the filetree itself.
+ * The accumulator is the filetree itself
  */
 export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath: string }>(
   (acc, curr) => {
@@ -51,12 +53,12 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
         if (arg === '..') {
           return { ...acc, currPath: getParentOfPath(acc.currPath) };
         }
-        
-        return { ...acc, currPath: `${acc.currPath}${arg === '/' ? '/' : arg}` };
+
+        return { ...acc, currPath: `${acc.currPath}/${arg}` };
       }
     }
 
-    const [dirOrSize, name] = curr.split(' ')
+    const [dirOrSize, name] = curr.split(' ');
     
     if (dirOrSize === 'dir') {
       return {
@@ -84,3 +86,5 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
   },
   { fileTree: {}, currPath: '' },
 );
+
+console.log(JSON.stringify(fileTree, undefined, 2));
