@@ -42,6 +42,10 @@ export const getParentOfPath = (path: string): string => {
   return pathArr.slice(0, pathArr.length - 1).join('/');
 }
 
+const getNextPath = (currPath: string, nextPathPart: string): string => currPath === ROOT
+  ? `${currPath}${nextPathPart}`
+  : `${currPath}/${nextPathPart}`;
+
 /**
  * The accumulator is the filetree itself
  */
@@ -61,7 +65,7 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
 
         return {
           ...acc,
-          currPath: acc.currPath === ROOT ? `${acc.currPath}${arg}` : `${acc.currPath}/${arg}`,
+          currPath: getNextPath(acc.currPath, arg),
         };
       }
     }
@@ -94,7 +98,7 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
   const fileSum = files.reduce<number>((acc, [size, _]) => acc + size, 0);
 
   const childSum = directories.reduce<number>(
-    (acc, curr) => acc + getFileSum(fileTree, `${path === '/' ? `${path}` : `${path}/`}${curr}`),
+    (acc, curr) => acc + getFileSum(fileTree, getNextPath(path, curr)),
     0,
   );
 
