@@ -59,14 +59,10 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
       }
       
       if (cmd === Command.cd) {
-        if (arg === '..') {
-          return { ...acc, currPath: getParentOfPath(acc.currPath) };
-        }
-
         return {
           ...acc,
-          currPath: getNextPath(acc.currPath, arg),
-        };
+          currPath: arg === '..' ? getParentOfPath(acc.currPath) : getNextPath(acc.currPath, arg),
+        }
       }
     }
 
