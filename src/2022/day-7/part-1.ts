@@ -2,15 +2,11 @@ import { fileTree, getFileSum } from './common';
 
 const MAX_DIRECTORY_SIZE = <const> 100_000;
 
-const sum = Object.entries(fileTree).reduce<number>(
-  (acc, [path, _]) => {
-    const fileSum = getFileSum(fileTree, path);
+const sum = Object.keys(fileTree).reduce<number>(
+  (acc, path) => {
+    const fileSum = getFileSum(fileTree, path) ?? 0;
 
-    if (!fileSum || fileSum > MAX_DIRECTORY_SIZE) {
-      return acc;
-    }
-
-    return acc + fileSum;
+    return fileSum <= MAX_DIRECTORY_SIZE ? acc + fileSum : acc;
   },
   0,
 );

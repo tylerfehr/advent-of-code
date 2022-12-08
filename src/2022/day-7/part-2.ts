@@ -18,18 +18,17 @@ const unusedSpace = MAX_DISK_SPACE - totalFileSize;
  */
 const spaceStillNeeded = DISK_SPACE_NEEDED - unusedSpace;
 
-const directoriesToDelete = Object.entries(fileTree).reduce<number[]>(
-  (acc, [path, _]) => {
-
+const smallestDirectorySizeWeCanDelete = Object.keys(fileTree).reduce<number>(
+  (acc, path) => {
     const fileSum = getFileSum(fileTree, path);
 
-    if (!fileSum || fileSum < spaceStillNeeded) {
+    if (!fileSum) {
       return acc;
     }
 
-    return [...acc, fileSum];
+    return (fileSum < acc && fileSum > spaceStillNeeded) ? fileSum : acc;
   },
-  [],
+  Number.MAX_SAFE_INTEGER,
 );
 
-console.log(`Day 7 Part 2: The total size of the smallest directory we can delete is ${Math.min(...directoriesToDelete)}`)
+console.log(`Day 7 Part 2: The total size of the smallest directory we can delete is ${smallestDirectorySizeWeCanDelete}`)
