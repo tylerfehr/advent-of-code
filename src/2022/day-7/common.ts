@@ -67,30 +67,20 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
     }
 
     const [dirOrSize, name] = curr.split(' ');
+
+    // if the files and directories at the current path don't exist, we need to initialize them
+    if (!acc.fileTree[acc.currPath]) {
+      acc.fileTree[acc.currPath] = { directories: [], files: [] };
+    }
     
     if (dirOrSize === 'dir') {
-      return {
-        ...acc,
-        fileTree: {
-          ...acc.fileTree,
-          [acc.currPath]: {
-            ...acc.fileTree[acc.currPath],
-            directories: [...acc.fileTree[acc.currPath]?.directories ?? [], name],
-          },
-        },
-      };
+      acc.fileTree[acc.currPath].directories.push(name);
+    }
+    else {
+      acc.fileTree[acc.currPath].files.push([+dirOrSize, name]);
     }
 
-    return {
-      ...acc,
-      fileTree: {
-        ...acc.fileTree,
-        [acc.currPath]: {
-          ...acc.fileTree[acc.currPath],
-          files: [...acc.fileTree[acc.currPath]?.files ?? [], [+dirOrSize, name]],
-        },
-      },
-    };
+    return acc;
   },
   { fileTree: {}, currPath: ROOT },
 );
