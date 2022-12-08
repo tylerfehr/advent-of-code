@@ -1,6 +1,6 @@
 import { readTextFile } from '../../readfile';
 
-const DAY_SEVEN_INPUT_FILE_PATH = './2022/inputs/day-7-test.txt';
+const DAY_SEVEN_INPUT_FILE_PATH = './2022/inputs/day-7.txt';
 
 /**
  * Raw terminal output from running commands
