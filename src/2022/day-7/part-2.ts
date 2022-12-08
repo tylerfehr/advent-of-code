@@ -22,10 +22,6 @@ const smallestDirectorySizeWeCanDelete = Object.keys(fileTree).reduce<number>(
   (acc, path) => {
     const fileSum = getFileSum(fileTree, path);
 
-    if (!fileSum) {
-      return acc;
-    }
-
     return (fileSum < acc && fileSum > spaceStillNeeded) ? fileSum : acc;
   },
   Number.MAX_SAFE_INTEGER,
