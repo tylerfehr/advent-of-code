@@ -94,3 +94,23 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
   },
   { fileTree: {}, currPath: ROOT },
 );
+
+/**
+ * Get sum of file sizes for a path and its children
+ */
+ export const getFileSum = (fileTree: FileTree, path: string): number => {
+  const { files, directories } = fileTree[path];
+
+  const fileSum = (files ?? []).reduce<number>((acc, [size, _]) => acc + size, 0);
+
+  const childSum = (directories ?? []).reduce<number>(
+    (acc, curr) => {
+      const p = `${path === '/' ? `${path}` : `${path}/`}${curr}`;
+
+      return acc + getFileSum(fileTree, p);
+    },
+    0,
+  );
+
+  return fileSum + childSum;
+};
