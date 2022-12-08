@@ -91,9 +91,9 @@ export const { fileTree } = terminalOutput.reduce<{ fileTree: FileTree; currPath
  export const getFileSum = (fileTree: FileTree, path: string): number => {
   const { files, directories } = fileTree[path];
 
-  const fileSum = (files ?? []).reduce<number>((acc, [size, _]) => acc + size, 0);
+  const fileSum = files.reduce<number>((acc, [size, _]) => acc + size, 0);
 
-  const childSum = (directories ?? []).reduce<number>(
+  const childSum = directories.reduce<number>(
     (acc, curr) => acc + getFileSum(fileTree, `${path === '/' ? `${path}` : `${path}/`}${curr}`),
     0,
   );
