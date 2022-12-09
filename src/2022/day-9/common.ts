@@ -13,16 +13,6 @@ export enum Direction {
 }
 
 /**
- * Character representing the head
- */
-export const HEAD = <const> 'H';
-
-/**
- * Character representing the tail
- */
-export const TAIL = <const> 'T';
-
-/**
  * Simulated motion of steps that the rope took
  */
 export const series: [Direction, number][] = readTextFile(DAY_NINE_INPUT_FILE_PATH)
@@ -30,7 +20,7 @@ export const series: [Direction, number][] = readTextFile(DAY_NINE_INPUT_FILE_PA
   .split('\n')
   .map<[Direction, number]>(([direction, stepSize]) => [<Direction> direction, +stepSize]);
 
-type Position = [number, number];
+export type Position = [number, number];
 
 /**
  * Rope state
@@ -52,24 +42,27 @@ export interface RopeState {
 }
 
 /**
- * Get the difference of x and y positions
+ * Map each direction to the diff in position it takes for a single step
  */
-export const getDiff = ([x1, y1]: Position, [x2, y2]: Position): Position => [x1 - x2, y2 - y1];
+export const ONE_MOVEMENT_LOOKUP: Record<Direction, Position> = {
+  [Direction.Up]: [0, 1],
+  [Direction.Down]: [0, -1],
+  [Direction.Left]: [-1, 0],
+  [Direction.Right]: [1, 0],
+};
 
 /**
- * Simulate the rope as it executes each step in the series
+ * Get the difference of x and y positions
  */
-export const simulateRope = (series: [Direction, number][]) => {
-  series.reduce<RopeState>(
-    (acc, curr) => {
-      // do a step
-      // check where T is in relation to H
-        // if the T and H aren't touching
-          // if the H is two steps U, D, L, or R from the T, move it in that direction
-          // if the H isn't in the same row or column as the T, move the H diagonally in the T's direction
-        // if they are touching, no update to state
-      return acc;
-    },
-    { hPos: [0, 0], tPos: [0, 0], tPosLookup: {} },
-  );
-};
+export const getDelta = ([x1, y1]: Position, [x2, y2]: Position): Position => [x1 - x2, y2 - y1];
+
+/**
+ * Apply a step delta to a position [x1, y1]
+ */
+export const applyDelta = ([x1, y1]: Position, [dx, dy]: Position): Position => [x1 + dx, y1 + dy];
+
+/**
+ * Diagonal Deltas are [1, 1], [-1, 1], [-1, -1] and [1, -1],
+ * so the absolute value of each x and y is just 1
+ */
+export const isDeltaDiagonal = ([x, y]: Position): boolean => Math.abs(x) === 1 && Math.abs(y) === 1;
