@@ -15,17 +15,10 @@ const getNumberOfVisibleTrees = (treeGrid: number[][]): number => {
     for (let j = 0; j < treeGrid[i].length; j += 1) {
       const currTree = treeGrid[i][j];
 
-      const columnAbove = getColumnAbove(treeGrid, j);
-      const columnBelow = getColumnBelow(treeGrid, j);
+      const columnAbove = getColumnAbove(treeGrid, i, j);
+      const columnBelow = getColumnBelow(treeGrid, i, j);
       const rowRight = getRowRight(treeGrid, i, j);
       const rowLeft = getRowLeft(treeGrid, i, j);
-
-      console.log(`${i}, ${j} => ${currTree}`)
-      console.log('above', columnAbove);
-      console.log('below', columnBelow);
-      console.log('right', rowRight);
-      console.log('left', rowLeft);
-      console.log('-------');
 
       if (
         isVisibleFromSide(currTree, columnAbove)
@@ -33,7 +26,6 @@ const getNumberOfVisibleTrees = (treeGrid: number[][]): number => {
         || isVisibleFromSide(currTree, rowRight)
         || isVisibleFromSide(currTree, rowLeft)
       ) {
-        // console.log(`${i}, ${j} => ${currTree} | IS VISIBLE`)
         numVisible += 1;
       }
     }

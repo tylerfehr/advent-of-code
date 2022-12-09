@@ -1,6 +1,6 @@
 import { readTextFile } from '../../readfile';
 
-const DAY_EIGHT_INPUT_FILE_PATH = './2022/inputs/day-8-test.txt';
+const DAY_EIGHT_INPUT_FILE_PATH = './2022/inputs/day-8.txt';
 
 /**
  * The two dimensional grid of trees, parsed into arrays
@@ -26,10 +26,10 @@ export const isVisibleFromSide = (tree: number, treesToSide: number[]): boolean 
 /**
  * Get column above a starting point as a subarray
  */
-export const getColumnAbove = (treeGrid: number[][], j: number): number[] => {
+export const getColumnAbove = (treeGrid: number[][], i: number, j: number): number[] => {
   const treeArr: number[] = [];
 
-  for (let start = 0; start < j; start += 1) {
+  for (let start = 0; start < i; start += 1) {
     treeArr.push(treeGrid[start][j]);
   }
 
@@ -39,10 +39,10 @@ export const getColumnAbove = (treeGrid: number[][], j: number): number[] => {
 /**
  * Get column below a starting point as a subarray
  */
-export const getColumnBelow = (treeGrid: number[][], j: number): number[] => {
+export const getColumnBelow = (treeGrid: number[][], i: number, j: number): number[] => {
   const treeArr: number[] = [];
 
-  for (let start = j + 1; start < treeGrid.length; start += 1) {
+  for (let start = i + 1; start < treeGrid.length; start += 1) {
     treeArr.push(treeGrid[start][j]);
   }
 
@@ -50,7 +50,7 @@ export const getColumnBelow = (treeGrid: number[][], j: number): number[] => {
 }
 
 /**
- * Get column below a starting point as a subarray
+ * Get row right of starting point as a subarray
  */
  export const getRowRight = (treeGrid: number[][], i: number, j: number): number[] => {
   const treeArr: number[] = [];
@@ -63,7 +63,7 @@ export const getColumnBelow = (treeGrid: number[][], j: number): number[] => {
 }
 
 /**
- * Get column below a starting point as a subarray
+ * Get row left of starting point as a subarray
  */
  export const getRowLeft = (treeGrid: number[][], i: number, j: number): number[] => {
   const treeArr: number[] = [];
