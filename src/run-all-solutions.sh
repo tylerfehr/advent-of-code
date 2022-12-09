@@ -10,6 +10,8 @@ FILES="2022/day-1/part-1.ts
 2022/day-5/part-2.ts
 2022/day-6/part-1.ts
 2022/day-6/part-2.ts
+2022/day-7/part-1.ts
+2022/day-7/part-2.ts
 "
 
 for f in $FILES; do
