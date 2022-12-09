@@ -1,6 +1,6 @@
 import { readTextFile } from '../../readfile';
 
-const DAY_EIGHT_INPUT_FILE_PATH = './2022/inputs/day-8.txt';
+const DAY_EIGHT_INPUT_FILE_PATH = './2022/inputs/day-8-test.txt';
 
 /**
  * The two dimensional grid of trees, parsed into arrays
@@ -29,7 +29,7 @@ export const isVisibleFromSide = (tree: number, treesToSide: number[]): boolean 
 export const getColumnAbove = (treeGrid: number[][], i: number, j: number): number[] => {
   const treeArr: number[] = [];
 
-  for (let start = 0; start < i; start += 1) {
+  for (let start = i - 1; start >= 0; start -= 1) {
     treeArr.push(treeGrid[start][j]);
   }
 
@@ -68,7 +68,7 @@ export const getColumnBelow = (treeGrid: number[][], i: number, j: number): numb
  export const getRowLeft = (treeGrid: number[][], i: number, j: number): number[] => {
   const treeArr: number[] = [];
 
-  for (let start = 0; start < j; start += 1) {
+  for (let start = j - 1; start >= 0; start -= 1) {
     treeArr.push(treeGrid[i][start]);
   }
 
