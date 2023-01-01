@@ -1,6 +1,6 @@
 # Advent of Code
 
-__Note: Solutions will be posted mainly in the evening (US EST time), Especially as the problem difficulty increases. I still gotta work__ :smile:
+__Note: Caught covid the last few weeks. I'm still planning on completing the entirety of the challenge, probably just not super quickly
 
 
 My solutions for advent of code
